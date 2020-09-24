@@ -7,9 +7,10 @@ var dragonBreathGallons = 5.0
 const val PINT = 0.125
 var dragonBreathPints = dragonBreathGallons / PINT
 var dragonBreathOrders = 0
+var madePurchase = true
 
 fun main() {
-    for (i in 1..10) {
+    for (i in 1..15) {
         println("##### Order Number: $i #####")
         placeOrder("shandy,Dragon's Breath,5.91");
         //placeOrder("elixer,Shirley's Temple,4.20")
@@ -32,6 +33,7 @@ fun performPurchase(price: Double){
         playerSilver = remainingSilver
         displayBalance()
     } else {
+        madePurchase = false;
         println("Not enough gold to make a purchase.")
     }
 }
@@ -77,11 +79,15 @@ private fun placeOrder(menuData: String) {
     } else {
         "Boromir says: Thanks for the $name."
     }
+    if (madePurchase){
     println(phrase)
+    } else {
+        println("GOODBYE")
+    }
 
-    if (name == "Dragon's Breath") {
+    if (name == "Dragon's Breath" && madePurchase) {
         dragonBreathOrders++
         dragonBreathPints--
-        if (dragonBreathOrders >= 8) displayDragonBreathPintsLeft()
+        if (dragonBreathOrders >= 12) displayDragonBreathPintsLeft()
     }
 }
