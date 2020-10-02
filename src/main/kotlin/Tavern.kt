@@ -3,6 +3,7 @@ const val TAVERN_NAME = "Bomboe's Place"
 
 var playerGold = 10
 var playerSilver = 90
+val patronList = mutableListOf("Eli", "Mordoc", "Sophia")
 var dragonBreathGallons = 5.0
 const val PINT = 0.125
 var dragonBreathPints = dragonBreathGallons / PINT
@@ -10,6 +11,26 @@ var dragonBreathOrders = 0
 var madePurchase = true
 
 fun main() {
+
+    println(patronList)
+    patronList.remove("Eli")
+    patronList.add("Alex")
+    patronList.add(0, "Alex")
+    patronList[0] = "Alexis"
+    println(patronList)
+
+    if (patronList.contains("Eli")) {
+        println("The tavern master says: Eli's in the back playing cards.")
+    } else {
+        println("The tavern master says: Eli isn't here.")
+    }
+
+    if (patronList.containsAll(listOf("Sophia", "Mordoc"))) {
+        println("The tavern master says: Yeah, they're seated by the soup kettle.")
+    } else {
+        println("The tavern master says: No, they left hours ago.")
+    }
+
     for (i in 1..15) {
         println("##### Order Number: $i #####")
         placeOrder("shandy,Dragon's Breath,5.91");
