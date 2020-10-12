@@ -4,8 +4,8 @@ const val TAVERN_NAME = "Bomboe's Place"
 
 //var playerGold = 10
 //var playerSilver = 90
-val patronList = mutableListOf("Eli", "Mordoc", "Sophie", "Boris")
-val lastName = listOf("Ironfoot", "Fernsworth", "Baggins", "Yeltsin")
+val patronList = mutableListOf("Eli", "Mordoc", "Sophie", "Boris", "Eomer")
+val lastName = listOf("Ironfoot", "Fernsworth", "Baggins", "Yeltsin", "Cutler")
 val uniquePatrons = mutableSetOf<String>()
 val menuList = File("data/tavern-menu-items.txt").readText().split("\n")
 
