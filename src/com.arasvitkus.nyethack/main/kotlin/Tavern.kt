@@ -76,7 +76,7 @@ fun main() {
         playerSilver = remainingSilver
         displayBalance()
     } else {
-        madePurchase = false;
+        getMadePurchase = false;
         println("Not enough gold to make a purchase.")
     }
 }*/
