@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
 
-    val player = Player()
+    val player = Player("Caljax")
     player.castFireball()
 
     // Aura
@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
     //val healthStatus = formatHealthStatus(healthPoints, isBlessed)
 
     //Player status
-    printPlayerStatus(player)
+    //printPlayerStatus(player)
 
     //Aura
     player.auraColor()
