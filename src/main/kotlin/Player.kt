@@ -9,6 +9,7 @@ class Player(_name: String, var healthPoints: Int = 100, val isBlessed: Boolean,
 
     //Lazy init
     val hometown by lazy { selectHometown() }
+    var currentPosition = Coordinate(0, 0)
 
     //Initialization block, set up variables or values. Perform validation
     init {
