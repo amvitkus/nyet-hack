@@ -1,3 +1,5 @@
+import kotlin.system.exitProcess
+
 fun main(args: Array<String>) {
 
     //val player = Player("Caljax")
@@ -64,12 +66,37 @@ object Game {
         val argument = input.split(" ").getOrElse(1, { "" })
 
         fun processCommand() = when (command.toLowerCase()) {
+            "fight" -> fight()
             "move" -> move(argument)
             "quit", "exit" -> {whileIsTrue = false; "GOODBYE"}
             else -> commandNotFound()
         }
 
         private fun commandNotFound() = "Unknown command issued."
+    }
+
+    private fun fight() = currentRoom.monster?.let {
+        while (player.healthPoints > 0 && it.healthPoints > 0) {
+            slay(it)
+            Thread.sleep(1000)
+        }
+
+        "Combat complete."
+    } ?: "There's nothing here to fight"
+
+    private fun slay(monster: Monster) {
+        println("${monster.name} did ${monster.attack(player)} damage!")
+        println("${player.name} did ${player.attack(player)} damage!")
+
+        if (player.healthPoints <= 0) {
+            println(">>>> You have been defeated! Thanks for playing! <<<<")
+            exitProcess(0)
+        }
+
+        if (monster.healthPoints <= 0) {
+            println(">>>> ${monster.name} has been defeated! <<<<")
+            currentRoom.monster = null
+        }
     }
 
     private fun move(directionInput: String) =
