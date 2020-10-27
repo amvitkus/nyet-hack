@@ -24,8 +24,7 @@ class Player(_name: String, override var healthPoints: Int = 100, val isBlessed:
     private fun selectHometown() = File("data/towns.txt")
             .readText()
             .split("\n")
-            .shuffled()
-            .first()
+            .random()
 
     fun auraColor(): String {
         val auraVisible = isBlessed && healthPoints > 50 || isImmortal
